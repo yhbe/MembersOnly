@@ -9,8 +9,8 @@ function Navbar() {
           <span className="nav-h1-span">Members</span>Only
         </h1>
         <div className="nav--right-side-container">
-          <button className="nav-button">Join Club</button>
-          <button className="nav-button">New Message</button>
+          <button className="nav-button">Login</button>
+          <button className="nav-button">Sign Up</button>
         </div>
       </div>
     </nav>

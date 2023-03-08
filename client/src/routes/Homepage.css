@@ -1,0 +1,64 @@
+.homepage--main-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.homepage--container{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.homepage-title{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messages-title{
+  margin-top: 37px;
+}
+
+.posts-section{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.post--container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 15px;
+}
+
+.post{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.164);
+  margin: 10px 0px;
+  border-radius: 15px;
+  min-width: 700px;
+  min-height: 150px;
+  justify-content: space-between;
+}
+
+/* .post > hr {
+  width: 100%;
+} */
+
+
+.choose--page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
