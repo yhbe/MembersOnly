@@ -4,6 +4,7 @@ import "./Navbar.css";
 function Navbar({isLoggedIn}) {
 
   const handleSignUp = () => {
+    console.log("singing up")
   }
 
   return (
