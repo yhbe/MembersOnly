@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import "./Homepage.css";
 
-function Homepage() {
+function Homepage({isLoggedIn}) {
   return (
     <div className="homepage--main-container">
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn}/>
       <div className="homepage--container">
         <div className="homepage-title">
           <h1 className="messages-title">Messages</h1>

@@ -1,7 +1,11 @@
 import React from 'react';
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({isLoggedIn}) {
+
+  const handleSignUp = () => {
+  }
+
   return (
     <nav>
       <div className="nav--container">
@@ -10,7 +14,9 @@ function Navbar() {
         </h1>
         <div className="nav--right-side-container">
           <button className="nav-button">Login</button>
-          <button className="nav-button">Sign Up</button>
+          <button onClick={() => handleSignUp()} className="nav-button">
+            Sign Up
+          </button>
         </div>
       </div>
     </nav>
