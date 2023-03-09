@@ -1,11 +1,10 @@
 import React from 'react';
 import "./Navbar.css";
 
-function Navbar({isLoggedIn}) {
-
+function Navbar({ isLoggedIn, toggleSignUp }) {
   const handleSignUp = () => {
-    console.log("singing up")
-  }
+    toggleSignUp()
+  };
 
   return (
     <nav>

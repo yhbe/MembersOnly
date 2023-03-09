@@ -33,4 +33,5 @@ nav {
   background-color: rgb(79, 70, 229);
   font-size: 1rem;
   font-weight: 500;
+  cursor: pointer;
 }

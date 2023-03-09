@@ -1,0 +1,68 @@
+.modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(29, 27, 27, 0.281);
+}
+
+.SignUpForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  background-color: white;
+  font-size: 1.4rem;
+  min-height: 500px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.514);
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.SignUpForm > ul > li > label{
+  display: flex;
+  font-size: 1.1rem;
+}
+
+.SignUpForm> ul > li > input{
+  font-size: inherit;
+  border-radius: 5px;
+  border: 1px solid rgba(116, 104, 104, 0.685);
+  min-height: 35px;
+}
+
+.SignUpForm>ul>li>input:focus {
+  outline: 1px solid rgb(79, 70, 229);
+}
+
+.SignUpForm > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.SignUpForm>ul>li{
+  margin-bottom: 10px;
+}
+
+.form-submit-button{
+  color: white;
+  background-color: rgb(79, 70, 229);
+  border-radius: 5px;
+  border: none;
+  min-height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* close modal */
+
+.close-modal{
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
