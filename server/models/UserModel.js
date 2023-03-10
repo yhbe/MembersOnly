@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   name: {type: String, required: true},
   email: {type: String, required: true},
   password: {type: String, required: true},
+  isMember: {type: Boolean, required: false}
 })
 
 userSchema.methods.comparePassword = async function (candidatePassword) {

@@ -31,7 +31,7 @@ function Homepage({loggedInUser, setLoggedInUser, setToken, token}) {
 
   return (
     <div className="homepage--main-container">
-      <Navbar loggedInUser={loggedInUser} toggleSignUp={toggleSignUp} toggleLogin={toggleLogin} setLoggedInUser={setLoggedInUser} setToken={setToken}/>
+      <Navbar loggedInUser={loggedInUser} toggleSignUp={toggleSignUp} toggleLogin={toggleLogin} setLoggedInUser={setLoggedInUser} setToken={setToken} port={port}/>
       <div className="homepage--container">
         <div className="homepage-title">
           <h1 className="messages-title">Messages</h1>

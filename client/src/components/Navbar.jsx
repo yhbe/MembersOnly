@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Confetti from "react-confetti";
 import "./Navbar.css";
 
-function Navbar({toggleSignUp, toggleLogin, loggedInUser, setLoggedInUser, setToken }) { 
+function Navbar({toggleSignUp, toggleLogin, loggedInUser, setLoggedInUser, setToken, port }) { 
   const [userDropDown, setUserDropDown] = useState(false)
-
+  const [showConfetti, setShowConfetti] = useState(false);
+  
   const handleSignUp = () => {
     toggleSignUp()
   };
@@ -19,10 +21,34 @@ function Navbar({toggleSignUp, toggleLogin, loggedInUser, setLoggedInUser, setTo
     )
   }
 
+  const joinClub = async () => {
+    const user = {...loggedInUser, clubMember: true};
+    console.log(user)
+    try {
+      const response = await fetch(`${port}/user/JoinClub`, {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok){
+        const data = await response.json();
+        setLoggedInUser({...data.user})
+        setShowConfetti(true)
+        setTimeout(() => {
+          setShowConfetti(false)
+        }, 2250)
+      }
+    } catch(error){ 
+      console.error(error);
+    }
+  }
+
   const loggedInJSX = () => {
     return (
       <>
-        <button className="nav-button">Join Club</button>
+        {!loggedInUser.isMember && <button onClick={() => joinClub()} className="nav-button">Join Club</button>}
         <button className="nav-button">New Message</button>
         <div className="account-container">
         <button onClick={() => setUserDropDown(prevState => !prevState)} className="account-button">
@@ -58,6 +84,7 @@ function Navbar({toggleSignUp, toggleLogin, loggedInUser, setLoggedInUser, setTo
 
   return (
     <nav>
+      {showConfetti && <Confetti />}
       <div className="nav--container">
         <h1 className="nav-h1">
           <span className="nav-h1-span">Members</span>Only
