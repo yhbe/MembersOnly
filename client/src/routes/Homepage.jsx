@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import LoginModal from "../components/LoginModal";
 import Navbar from '../components/Navbar';
 import SignUpModal from '../components/SignUpModal';
@@ -31,7 +31,7 @@ function Homepage({loggedInUser, setLoggedInUser, setToken, token}) {
 
   return (
     <div className="homepage--main-container">
-      <Navbar loggedInUser={loggedInUser} toggleSignUp={toggleSignUp} toggleLogin={toggleLogin}/>
+      <Navbar loggedInUser={loggedInUser} toggleSignUp={toggleSignUp} toggleLogin={toggleLogin} setLoggedInUser={setLoggedInUser} setToken={setToken}/>
       <div className="homepage--container">
         <div className="homepage-title">
           <h1 className="messages-title">Messages</h1>
