@@ -8,7 +8,7 @@
   background-color: rgba(29, 27, 27, 0.281);
 }
 
-.SignUpForm{
+.form{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,29 +22,29 @@
   position: relative;
 }
 
-.SignUpForm > ul > li > label{
+.form > ul > li > label{
   display: flex;
   font-size: 1.1rem;
 }
 
-.SignUpForm> ul > li > input{
+.form > ul > li > input{
   font-size: inherit;
   border-radius: 5px;
   border: 1px solid rgba(116, 104, 104, 0.685);
   min-height: 35px;
 }
 
-.SignUpForm>ul>li>input:focus {
+.form >ul>li>input:focus {
   outline: 1px solid rgb(79, 70, 229);
 }
 
-.SignUpForm > ul {
+.form > ul {
   display: flex;
   flex-direction: column;
   list-style: none;
 }
 
-.SignUpForm>ul>li{
+.form >ul>li{
   margin-bottom: 10px;
 }
 

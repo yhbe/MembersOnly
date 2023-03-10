@@ -31,9 +31,11 @@ function SignUpModal({ toggleSignUp }) {
       },
     })
     if (response.ok){
-      alert("form submitted!")
       setPasswordsDontMatch(false)
       toggleSignUp()
+      setTimeout(() => {
+        alert("Account created! Please Login")
+      }, 1500)
     }
   }
 

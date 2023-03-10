@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Navbar.css";
 
-function Navbar({ isLoggedIn, toggleSignUp }) {
+function Navbar({ isLoggedIn, toggleSignUp, toggleLogin }) {
   const handleSignUp = () => {
     toggleSignUp()
   };
@@ -13,7 +13,7 @@ function Navbar({ isLoggedIn, toggleSignUp }) {
           <span className="nav-h1-span">Members</span>Only
         </h1>
         <div className="nav--right-side-container">
-          <button className="nav-button">Login</button>
+          <button onClick={() => toggleLogin()} className="nav-button">Login</button>
           <button onClick={() => handleSignUp()} className="nav-button">
             Sign Up
           </button>
