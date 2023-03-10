@@ -1,4 +1,5 @@
-const User = require("../models/UserModel")
+const User = require("../models/UserModel");
+const { generateAccessToken } = require("../utils/generateAccessToken");
 
 module.exports = {
   post: async (req, res) => {
@@ -13,4 +14,31 @@ module.exports = {
   } catch (err) {
     res.status(400).json({ message: err.message });
   }},
+  login: async (req, res) => {
+    try {
+      const email = req.body.userEmail
+      const password = req.body.userPassword
+
+      // Check if the provided email exists in the database
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        return res.status(401).json({ message: "Invalid email" });
+      }
+
+      // Check if password matches
+      const isMatch = await user.comparePassword(password);
+      if (!isMatch) {
+        return res.status(401).json({ message: "passwords do not match" });
+      }
+
+      // If the user exists and the password matches, generate an access token
+      const accessToken = generateAccessToken(user._id);
+      
+      // Send the access token & user in the response
+      return res.status(200).json({token: accessToken, user: user });
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  },
 };

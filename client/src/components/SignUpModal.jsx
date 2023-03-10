@@ -1,11 +1,9 @@
 import React, { useRef, useState } from 'react';
 import "./SignUpModal.css";
 
-function SignUpModal({ toggleSignUp }) {
+function SignUpModal({ port, toggleSignUp }) {
   const [passwordsDontMatch, setPasswordsDontMatch] = useState(false)
   const passwordRef = useRef(null)
-
-  const port = process.env.PortDATA || "http://localhost:5000"
 
   const handleFormSubmission = async (event) => {
     event.preventDefault()
@@ -58,7 +56,7 @@ function SignUpModal({ toggleSignUp }) {
           </li>
           <li>
             <label htmlFor="userEmail">Email</label>
-            <input type="email" name="userEmail" id="userEmail" required />
+            <input type="email" name="userEmail" id="userEmail" autoComplete='user-email' required />
           </li>
           <li>
             <label htmlFor="userPassword">Password</label>
@@ -68,6 +66,7 @@ function SignUpModal({ toggleSignUp }) {
               id="userPassword"
               aria-describedby="password-error"
               ref={passwordRef}
+              autoComplete="new-password"
               required
             />
           </li>
@@ -77,11 +76,12 @@ function SignUpModal({ toggleSignUp }) {
               type="password"
               name="userConfirmPassword"
               id="userConfirmPassword"
+              autoComplete="new-password"
               required
             />
           </li>
           {passwordsDontMatch && (
-            <p className='error-message' id="password-error" aria-live="polite">
+            <p className="error-message" id="password-error" aria-live="polite">
               Your passwords must match!
             </p>
           )}

@@ -1,13 +1,40 @@
 import React from 'react';
 
-function LoginModal({toggleLogin}) {
+function LoginModal({ port, toggleLogin, setLoggedInUser, setToken }) {
+  const handleFormSubmission = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new URLSearchParams(new FormData(form));
+
+    const response = await fetch(`${port}/user/login`, {
+      method: "POST",
+      body: formData.toString(),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+    if (response.ok) {
+      response.json().then((data) => {
+        setLoggedInUser(data.user)
+        setToken(data.token)
+        toggleLogin()
+      })
+    } else {
+      alert("This user does not exist!");
+    }
+  };
+
   return (
     <div className="modal">
-      <form className="form" action="">
+      <form
+        onSubmit={(e) => handleFormSubmission(e)}
+        className="form"
+        action=""
+      >
         <ul>
           <li>
             <label htmlFor="userEmail">Email</label>
-            <input type="email" name="userEmail" id="userEmail" required />
+            <input type="email" name="userEmail" id="userEmail" autoComplete='user-email' required />
           </li>
           <li>
             <label htmlFor="userPassword">Password</label>
@@ -16,6 +43,7 @@ function LoginModal({toggleLogin}) {
               name="userPassword"
               id="userPassword"
               aria-describedby="password-error"
+              autoComplete='user-password'
               required
             />
           </li>

@@ -6,6 +6,11 @@ const userSchema = new mongoose.Schema({
   password: {type: String, required: true},
 })
 
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  const isMatch = candidatePassword === this.password
+  return isMatch;
+};
+
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
