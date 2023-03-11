@@ -19,6 +19,9 @@ connect()
 const userRoute = require("./routes/User")
 app.use("/user", userRoute)
 
+const messageRoute = require("./routes/Message")
+app.use("/message", messageRoute)
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })

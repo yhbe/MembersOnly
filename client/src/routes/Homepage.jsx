@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoginModal from "../components/LoginModal";
+import MessageModal from '../components/MessageModal';
 import Navbar from '../components/Navbar';
 import SignUpModal from '../components/SignUpModal';
 import "./Homepage.css";
@@ -7,6 +8,7 @@ import "./Homepage.css";
 function Homepage({loggedInUser, setLoggedInUser, setToken, token}) {
   const [showSignUp, setShowSignUp] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [showMessageModal, setShowMessageModal] = useState(false);
   const port = process.env.PortDATA || "http://localhost:5000";
 
   const toggleSignUp = () => {
@@ -31,7 +33,15 @@ function Homepage({loggedInUser, setLoggedInUser, setToken, token}) {
 
   return (
     <div className="homepage--main-container">
-      <Navbar loggedInUser={loggedInUser} toggleSignUp={toggleSignUp} toggleLogin={toggleLogin} setLoggedInUser={setLoggedInUser} setToken={setToken} port={port}/>
+      <Navbar
+        loggedInUser={loggedInUser}
+        toggleSignUp={toggleSignUp}
+        toggleLogin={toggleLogin}
+        setLoggedInUser={setLoggedInUser}
+        setToken={setToken}
+        port={port}
+        setShowMessageModal={setShowMessageModal}
+      />
       <div className="homepage--container">
         <div className="homepage-title">
           <h1 className="messages-title">Messages</h1>
@@ -49,10 +59,13 @@ function Homepage({loggedInUser, setLoggedInUser, setToken, token}) {
           </div>
         </main>
         <div className="choose--page">
-        <p>1</p>
+          <p>1</p>
         </div>
       </div>
       {createModal()}
+      {showMessageModal && (
+        <MessageModal setShowMessageModal={setShowMessageModal} port={port} loggedInUser={loggedInUser}/>
+      )}
     </div>
   );
 }
