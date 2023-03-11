@@ -94,7 +94,7 @@ function Navbar({
         </p>
         <hr className="slight-margin-bottom" />
         <p className="gray-text slight-margin-bottom ">Membership Status</p>
-        <p className="bold-text slight-margin-bottom">Not A Member</p>
+        {loggedInUser.isMember ? <p className="bold-text slight-margin-bottom">Member</p> : <p className="bold-text slight-margin-bottom">Not A Member</p>}
         <hr className="slight-margin-bottom" />
         <button
           onClick={() => {
