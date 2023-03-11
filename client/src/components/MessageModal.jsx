@@ -1,6 +1,11 @@
 import React from 'react';
 
-function MessageModal({ setShowMessageModal, port, loggedInUser }) {
+function MessageModal({
+  setShowMessageModal,
+  port,
+  loggedInUser,
+  refreshPage,
+}) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,7 +21,8 @@ function MessageModal({ setShowMessageModal, port, loggedInUser }) {
     if (response.ok) {
       const data = response.json();
       console.log(data);
-      setShowMessageModal(false)
+      refreshPage()
+      setShowMessageModal(false);
     }
   };
 

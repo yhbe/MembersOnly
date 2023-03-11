@@ -10,9 +10,18 @@ module.exports = {
         message: req.body.message
       })
       const savedMessage = await message.save()
-      return res.status(201).json({ message: "Message Created!" });
+      res.status(201).json({ message: "Message Created!" });
     } catch(err) {
       res.status(400).json({ message: err.message });
     }
   },
+  getAll: async (req, res) => {
+    try{
+      const messages = await MessageBoard.find()
+      res.json(messages)
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error getting messages" });
+    }
+  }
 }
