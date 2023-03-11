@@ -33,7 +33,6 @@ function Navbar({
 
   const joinClub = async () => {
     const user = { ...loggedInUser, clubMember: true };
-    console.log(user);
     try {
       const response = await fetch(`${port}/user/JoinClub`, {
         method: "POST",

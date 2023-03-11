@@ -20,7 +20,6 @@ function MessageModal({
     });
     if (response.ok) {
       const data = response.json();
-      console.log(data);
       refreshPage()
       setShowMessageModal(false);
     }
