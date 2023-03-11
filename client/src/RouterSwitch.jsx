@@ -56,10 +56,10 @@ function RouterSwitch() {
 
   let messageJSX = undefined
   if (AllMessages.length > 0){
-    messageJSX = AllMessages.map(message => {
+    messageJSX = AllMessages.map((message,i) => {
       if (loggedInUser.isMember){
-        return MemberMessageJsx(message)
-      } else return CreateMessageJsx(message)
+        return MemberMessageJsx(message, i)
+      } else return CreateMessageJsx(message, i)
     }
     )
   }

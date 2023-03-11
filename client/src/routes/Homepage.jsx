@@ -17,6 +17,7 @@ function Homepage({
   const [showSignUp, setShowSignUp] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showMessageModal, setShowMessageModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const toggleSignUp = () => {
     setShowSignUp((prevState) => !prevState);
@@ -43,6 +44,25 @@ function Homepage({
     }
   }
 
+  function handlePageChange(pageNum) {
+    setCurrentPage(pageNum);
+  }
+
+  
+  const messagesPerPage = 3;
+  const startIndex = (currentPage - 1) * messagesPerPage;
+  const endIndex = startIndex + messagesPerPage;
+
+  let totalMessages;
+  let totalPages;
+  let displayedMessages
+  if (messageJSX) {
+    totalMessages = messageJSX.length;
+    totalPages = Math.ceil(totalMessages / messagesPerPage);
+    displayedMessages = messageJSX.slice(startIndex, endIndex);
+  }
+
+
   return (
     <div className="homepage--main-container">
       <Navbar
@@ -59,10 +79,20 @@ function Homepage({
           <h1 className="messages-title">Messages</h1>
         </div>
         <main className="posts-section">
-          <div className="post--container">{messageJSX}</div>
+          <div className="post--container">{displayedMessages}</div>
         </main>
         <div className="choose--page">
-          <p>1</p>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => handlePageChange(i + 1)}
+              className={
+                currentPage === i + 1 ? "active page-number" : "page-number"
+              }
+            >
+              {i + 1}
+            </button>
+          ))}
         </div>
       </div>
       {createModal()}

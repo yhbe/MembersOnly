@@ -1,8 +1,8 @@
 import React from 'react';
 
-function CreateMessageJsx(post, ) {
+function CreateMessageJsx(post, i) {
   return (
-      <div className="post">
+      <div key={i} className="post">
         <div className="title">{post.title}</div>
         <div className="message">{post.message}</div>
         <hr />

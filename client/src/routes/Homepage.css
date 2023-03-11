@@ -62,3 +62,17 @@
   font-size: 1.3rem;
   font-weight: 500;
 }
+
+.page-number{
+  padding: 10px;
+  margin: 0px 3px 0px 3px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.267);
+  font-weight: bolder;
+}
+
+.active{
+  font-size: 1.5rem;
+  color: rgb(79, 70, 229);
+}
