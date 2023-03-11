@@ -80,6 +80,7 @@ function Homepage({
         </div>
         <main className="posts-section">
           <div className="post--container">{displayedMessages}</div>
+        {!messageJSX && <h1>Loading...</h1>}
         </main>
         <div className="choose--page">
           {Array.from({ length: totalPages }, (_, i) => (

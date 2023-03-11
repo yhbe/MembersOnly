@@ -70,6 +70,7 @@
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.267);
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .active{
