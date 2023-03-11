@@ -8,7 +8,7 @@ function RouterSwitch() {
   const [loggedInUser, setLoggedInUser] = useState({})
   const [token,setToken] = useState(undefined)
   const [AllMessages, setAllMessages] = useState([])
-  const port = process.env.PortDATA || "http://localhost:5000";
+  const port = process.env.REACT_APP_PortDATA || "http://localhost:5000";
   
   useEffect(() => {
     const fetchAllMessages = async () => {
